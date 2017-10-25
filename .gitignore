@@ -1,5 +1,4 @@
 .vs/
 /Debug/
 /ClimateStation/Debug/
-/ClimateStation/_vm/
-*.xml
+/ClimateStation/
