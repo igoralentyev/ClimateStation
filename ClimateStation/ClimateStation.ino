@@ -1,8 +1,10 @@
 #include <DHT.h>
 
+// DHT defines
 #define DHTPIN 2
 #define DHTTYPE DHT22
 
+// Dht initialize
 DHT dht(DHTPIN, DHTTYPE);
 
 void setup() {
@@ -11,21 +13,19 @@ void setup() {
 }
 
 void loop() {
-	
-	delay(1000);
+	// Vars for DHT
+	float hum = dht.readHumidity();
+	float temp = dht.readTemperature();
 
-	double h = dht.readHumidity();
-	double t = dht.readTemperature();
-
-	if (isnan(h) || isnan(t)) {
-		Serial.println("Failed to read from DHT sensor!");
-		return;
+	if (isnan(hum) || isnan(temp)) {
+		char errorDHT22[] = "error reading data";
 	}
 
 	Serial.print("Humidity: ");
-	Serial.print(h);
+	Serial.print(hum);
 	Serial.print(" %\t");
 	Serial.print("Temperature: ");
-	Serial.print(t);
+	Serial.print(temp);
 	Serial.println(" *C ");
+	delay(2000);
 }
