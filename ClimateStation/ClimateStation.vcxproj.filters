@@ -17,5 +17,9 @@
   <ItemGroup>
     <None Include="ClimateStation.ino" />
   </ItemGroup>
- 
+  <ItemGroup>
+    <ClInclude Include="__vm\.ClimateStation.vsarduino.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>

@@ -1,15 +1,31 @@
-/*
- Name:		ClimateStation.ino
- Created:	25.10.2017 14:35:32
- Author:	igora
-*/
+#include <DHT.h>
 
-// the setup function runs once when you press reset or power the board
+#define DHTPIN 2
+#define DHTTYPE DHT22
+
+DHT dht(DHTPIN, DHTTYPE);
+
 void setup() {
-
+	Serial.begin(9600);
+	dht.begin();
 }
 
-// the loop function runs over and over again until power down or reset
 void loop() {
-  
+	
+	delay(1000);
+
+	double h = dht.readHumidity();
+	double t = dht.readTemperature();
+
+	if (isnan(h) || isnan(t)) {
+		Serial.println("Failed to read from DHT sensor!");
+		return;
+	}
+
+	Serial.print("Humidity: ");
+	Serial.print(h);
+	Serial.print(" %\t");
+	Serial.print("Temperature: ");
+	Serial.print(t);
+	Serial.println(" *C ");
 }
