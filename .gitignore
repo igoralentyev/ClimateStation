@@ -3,3 +3,6 @@
 /ClimateStation/Debug/
 /ClimateStation/_vm/
 *.xml
+ClimateStation/ClimateStation.vcxproj
+ClimateStation/ClimateStation.vcxproj
+*.vcxproj

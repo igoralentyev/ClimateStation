@@ -1,3 +1,5 @@
+// Lib for DHT22
+#include <DHT_U.h>
 #include <DHT.h>
 
 // Libs for BMP
@@ -31,6 +33,7 @@ void loop() {
 	// Vars for DHT
 	float hum = dht.readHumidity();
 	float temp = dht.readTemperature();
+	float heatIndex = dht.computeHeatIndex(temp, hum, false);
 	// Vars for BMP
 	float tempBMP = bmp.readTemperature();
 	float pressurePa = bmp.readPressure();
@@ -40,6 +43,7 @@ void loop() {
 	// Print for DHT
 	Serial.println(hum);
 	Serial.println(temp);
+	Serial.println(heatIndex);
 
 	// Print for BMP
 	Serial.println(tempBMP);
